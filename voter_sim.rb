@@ -1,4 +1,4 @@
-# Declares class method
+# Declares Person class
 class Person
   # Creates getter and setter method for name
   attr_accessor :name
