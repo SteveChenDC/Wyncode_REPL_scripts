@@ -4,7 +4,7 @@ class Person
   attr_accessor :name
 end
 
-# Declares politician method, inherits name method from Person class
+# Declares politician class, inherits name method from Person class
 class Politician < Person
   # Creates getter and setter method for party
   attr_accessor :party
