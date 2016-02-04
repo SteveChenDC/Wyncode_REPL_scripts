@@ -1,10 +1,14 @@
+# Declares class method
 class Person
+  # Creates getter and setter method for name
   attr_accessor :name
 end
 
+# Declares politician method, inherits name method from Person class
 class Politician < Person
+  # Creates getter and setter method for party
   attr_accessor :party
-
+  # Initialize method for Politician.new 
   def initialize(name, party)
     @name = name
     @party = party_validator(party)
@@ -77,9 +81,15 @@ class World
     start
   end
 
+  def put_line
+    puts "-------------" * 5
+  end
+
   def start
+    put_line
     puts "What would you like to do"
     puts "Create List Update or Delete"
+    put_line
     input = gets.chomp.downcase
     case input
     when "c"
@@ -97,8 +107,10 @@ class World
   end
 
   def create
+    put_line
     puts "Who would you like to create?"
     puts "(P)olitician or (V)oter"
+    put_line
     input = gets.chomp.downcase
     case input
     when "p"
@@ -106,7 +118,7 @@ class World
     when "v"
       create_voter
     else
-      puts "Please read what I said."
+      puts "Invalid input. Re-enter:"
       create
     end
   end
@@ -136,7 +148,9 @@ class World
   end
 
   def update
+    put_line
     puts "Who would you like to update: (V)oter or (P)olitician?"
+    put_line
     input = get_downcase
     case input
     when "v"
@@ -208,6 +222,7 @@ class World
       puts "Read the directions."
       delete
     end
+    step
     start
   end
 
@@ -215,7 +230,7 @@ class World
     puts "Politicians:"
     puts @politicians
 
-    puts "Who would you like to destroy?"
+    puts "Who would you like to delete?"
     name = gets.chomp
     @politicians.each do |politician|
       if politician.name == name
@@ -229,9 +244,14 @@ class World
     puts "Voters:"
     puts @voters
 
-    puts "Who would you like to destroy?"
+    puts "Who would you like to delete?"
     name = gets.chomp
-    # insert delete
+    @voters.each do |voter|
+      if voter.name == name
+        @voters.delete(politician)
+      end
+    end
+    start
   end
 end
 World.new
