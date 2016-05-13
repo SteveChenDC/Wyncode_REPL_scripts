@@ -1,5 +1,5 @@
 #How to use
-1. Run `ruby **repl_game.rb**` or `**voter_sim.rb**` in console of the files.
+1. Run `ruby repl_game.rb` or `voter_sim.rb` in console of the files.
 2. Enjoy
 
 # wyncode-projects
